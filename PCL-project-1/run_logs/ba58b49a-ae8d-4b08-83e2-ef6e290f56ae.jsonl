@@ -1,0 +1,4 @@
+{"stage": "run_started", "run_id": "ba58b49a-ae8d-4b08-83e2-ef6e290f56ae", "backend": "ollama", "sources": ["AInvest", "Reuters", "Discovery Alert", "S&P Global", "Business Research Insights", "MetalMiner", "Argus Media", "Fastmarkets", "Fitch Solutions", "Metal.com"], "requested_scope": "All", "target_date": "2026-03-19", "max_articles_total": 5, "per_source_limit": 2, "optional_imports": {"pydantic_core": true, "msal": true, "dotenv": true}, "ts": "2026-03-19T06:45:14.707987+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["Llama3.1:70b", "phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-19T06:45:15.088171+00:00"}
+{"stage": "today_fallback_started", "target_date": "2026-03-19", "fallback_sources": ["World Bank Blogs"], "ts": "2026-03-19T06:54:56.910298+00:00"}
+{"stage": "run_finished_no_articles", "target_date": "2026-03-19", "ts": "2026-03-19T06:55:12.748739+00:00"}

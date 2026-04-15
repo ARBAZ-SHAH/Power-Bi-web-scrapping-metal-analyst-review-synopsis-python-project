@@ -1,0 +1,4 @@
+{"stage": "run_started", "run_id": "a4c3934b-f93f-472c-8eb0-e719b496e7dd", "backend": "groq", "sources": ["AInvest", "Reuters", "Discovery Alert", "Capital.com", "Metal.com", "LME.com"], "requested_scope": "Copper, Aluminum", "target_date": "2026-04-09", "max_articles_total": 10, "per_source_limit": 8, "optional_imports": {"pydantic_core": true, "msal": true, "dotenv": true, "scrapy": true, "pypdf": true, "trafilatura": true, "readability": true, "playwright": true}, "ts": "2026-04-09T11:38:51.435223+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["Llama3.1:70b", "phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-04-09T11:38:51.562024+00:00"}
+{"stage": "today_fallback_started", "target_date": "2026-04-09", "fallback_sources": ["Argus Media", "Fitch Solutions"], "ts": "2026-04-09T12:02:28.800012+00:00"}
+{"stage": "run_finished_no_articles", "target_date": "2026-04-09", "ts": "2026-04-09T12:03:12.270904+00:00"}

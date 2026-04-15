@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Local Ollama Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px;
+      background: #f7f7f9;
+    }
+    h1 { margin-bottom: 10px; }
+    .bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    input, button, textarea {
+      font: inherit;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input[type="text"] { flex: 1; min-width: 240px; }
+    button { cursor: pointer; }
+    #chat {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 14px;
+      min-height: 420px;
+      overflow-y: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .msg {
+      margin: 12px 0;
+      padding: 12px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .user { background: #e9f2ff; }
+    .assistant { background: #eef7ea; }
+    .meta {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    .composer {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    textarea {
+      flex: 1;
+      min-height: 90px;
+      resize: vertical;
+    }
+    #status {
+      margin-top: 8px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Local Ollama Chat</h1>
+
+  <div class="bar">
+    <input id="model" type="text" value="llama3:8b" />
+    <button id="clearBtn">Clear Chat</button>
+  </div>
+
+  <div id="chat"></div>
+
+  <div class="composer">
+    <textarea id="prompt" placeholder="Type your message here..."></textarea>
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <div id="status">Ready.</div>
+
+  <script>
+    const chatEl = document.getElementById("chat");
+    const promptEl = document.getElementById("prompt");
+    const modelEl = document.getElementById("model");
+    const sendBtn = document.getElementById("sendBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const statusEl = document.getElementById("status");
+
+    const messages = [];
+
+    function addMessage(role, content) {
+      const wrapper = document.createElement("div");
+      wrapper.className = `msg ${role}`;
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent = role === "user" ? "You" : "Assistant";
+
+      const body = document.createElement("div");
+      body.textContent = content;
+
+      wrapper.appendChild(meta);
+      wrapper.appendChild(body);
+      chatEl.appendChild(wrapper);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const prompt = promptEl.value.trim();
+      const model = modelEl.value.trim();
+
+      if (!prompt || !model) return;
+
+      addMessage("user", prompt);
+      messages.push({ role: "user", content: prompt });
+      promptEl.value = "";
+      statusEl.textContent = "Thinking...";
+      sendBtn.disabled = true;
+
+      try {
+        const res = await fetch("http://10.4.3.45:11434/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model,
+            messages,
+            stream: false
+          })
+        });
+
+        if (!res.ok) {
+          const txt = await res.text();
+          throw new Error(`HTTP ${res.status}: ${txt}`);
+        }
+
+        const data = await res.json();
+        const reply =
+          data?.message?.content ??
+          data?.response ??
+          "No response returned.";
+
+        addMessage("assistant", reply);
+        messages.push({ role: "assistant", content: reply });
+        statusEl.textContent = "Ready.";
+      } catch (err) {
+        addMessage("assistant", "Error: " + err.message);
+        statusEl.textContent = "Request failed.";
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    clearBtn.addEventListener("click", () => {
+      messages.length = 0;
+      chatEl.innerHTML = "";
+      statusEl.textContent = "Chat cleared.";
+    });
+
+    promptEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>

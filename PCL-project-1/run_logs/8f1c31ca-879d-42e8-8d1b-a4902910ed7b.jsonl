@@ -1,0 +1,6 @@
+{"stage": "run_started", "run_id": "8f1c31ca-879d-42e8-8d1b-a4902910ed7b", "backend": "ollama", "sources": ["AInvest", "Reuters", "Discovery Alert", "S&P Global", "MetalMiner"], "requested_scope": "All", "use_llm_relevance_filter": true, "max_links_per_source": 10, "max_articles_total": 4, "sleep_seconds": 1.0, "max_workers": 1, "optional_imports": {"trafilatura": true, "playwright": true, "selenium": true}, "ts": "2026-03-18T08:57:40.936175+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["Llama3.1:70b", "phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-18T08:57:41.749066+00:00"}
+{"stage": "discovery_summary", "source_name": "AInvest", "candidate_count": 0, "top_candidates": [], "ts": "2026-03-18T09:03:33.162267+00:00"}
+{"stage": "listing_empty", "source_name": "AInvest", "ts": "2026-03-18T09:03:33.597758+00:00"}
+{"stage": "discovery_summary", "source_name": "Reuters", "candidate_count": 0, "top_candidates": [], "ts": "2026-03-18T09:03:37.574043+00:00"}
+{"stage": "listing_empty", "source_name": "Reuters", "ts": "2026-03-18T09:03:37.620983+00:00"}

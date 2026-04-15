@@ -1,0 +1,7 @@
+{"stage": "run_started", "run_id": "bbc13b0f-a2af-4716-808d-ffe7d414e8c9", "backend": "ollama", "source_configs": [["AInvest", "https://www.ainvest.com"], ["Reuters", "https://www.reuters.com"], ["Discovery Alert", "https://discoveryalert.com.au"], ["Capital.com", "https://capital.com/en-int"]], "ts": "2026-03-16T05:51:35.703748+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-16T05:51:36.106672+00:00"}
+{"stage": "article_skipped_thin", "source_name": "AInvest", "url": "https://www.ainvest.com/news/wire/", "title": "Financial News Wire: Real-Time Market Updates - AInvest", "ts": "2026-03-16T05:51:39.421700+00:00"}
+{"stage": "listing_error", "source_name": "Reuters", "listing_url": "https://www.reuters.com", "error": "401 Client Error: HTTP Forbidden for url: https://www.reuters.com/", "ts": "2026-03-16T05:51:41.652278+00:00"}
+{"stage": "listing_error", "source_name": "Discovery Alert", "listing_url": "https://discoveryalert.com.au", "error": "403 Client Error: Forbidden for url: https://discoveryalert.com.au/", "ts": "2026-03-16T05:51:42.992866+00:00"}
+{"stage": "listing_empty", "source_name": "Capital.com", "listing_url": "https://capital.com/en-int", "ts": "2026-03-16T05:51:45.209626+00:00"}
+{"stage": "run_finished_no_articles", "ts": "2026-03-16T05:51:45.250086+00:00"}

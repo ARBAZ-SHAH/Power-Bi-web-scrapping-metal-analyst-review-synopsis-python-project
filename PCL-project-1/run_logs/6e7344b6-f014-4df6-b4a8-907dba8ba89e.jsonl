@@ -1,0 +1,4 @@
+{"stage": "run_started", "run_id": "6e7344b6-f014-4df6-b4a8-907dba8ba89e", "backend": "ollama", "sources": ["AInvest"], "requested_scope": "All", "target_date": "2026-03-25", "max_articles_total": 10, "per_source_limit": 8, "optional_imports": {"pydantic_core": true, "msal": true, "dotenv": true}, "ts": "2026-03-25T06:05:11.429193+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["Llama3.1:70b", "phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-25T06:05:11.902619+00:00"}
+{"stage": "today_fallback_started", "target_date": "2026-03-25", "fallback_sources": ["Reuters", "Discovery Alert", "S&P Global", "MetalMiner", "Argus Media", "Fastmarkets", "World Bank Blogs"], "ts": "2026-03-25T06:05:35.054861+00:00"}
+{"stage": "run_finished_no_articles", "target_date": "2026-03-25", "ts": "2026-03-25T06:12:43.954990+00:00"}

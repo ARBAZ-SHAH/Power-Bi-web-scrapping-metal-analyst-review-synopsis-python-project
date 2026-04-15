@@ -1,0 +1,33 @@
+services:
+  analyst-brief:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: analyst-brief:v10
+    env_file:
+      - .env
+    environment:
+      SCRAP_FINAL_PRIMARY_PROVIDER: scrapling
+      SCRAP_FINAL_ENABLE_FIRECRAWL_DISCOVERY: "false"
+      SCRAP_FINAL_ENABLE_FIRECRAWL_FETCH: "false"
+      SCRAPLING_MODE: auto
+      SCRAPE_SOURCE_WORKERS: "5"
+      SCRAPE_MAX_CANDIDATES: "80"
+      SCRAP_FINAL_CRAWL_DEPTH: "2"
+      SCRAP_FINAL_MAX_PAGES_PER_SOURCE: "30"
+      SCRAP_FINAL_MAX_FOLLOW_PER_PAGE: "20"
+      SCRAP_FINAL_SHORTLIST_PER_SOURCE: "15"
+      SCRAPLING_HTTP_TIMEOUT: "25"
+      SCRAPLING_DYNAMIC_TIMEOUT_MS: "18000"
+      SCRAPLING_STEALTH_TIMEOUT_MS: "25000"
+    volumes:
+      - ./run_logs:/app/run_logs
+    restart: "no"
+    command:
+      - --backend
+      - auto
+      - --sources
+      - all
+      - --metal
+      - Copper, Aluminum
+      - --interactive

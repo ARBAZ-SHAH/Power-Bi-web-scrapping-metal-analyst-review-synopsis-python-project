@@ -1,0 +1,3 @@
+{"stage": "run_started", "run_id": "93d87931-5396-4575-90ea-26fe382eeac6", "backend": "ollama", "sources": ["Metal.com"], "requested_scope": "All", "target_date": "2026-03-19", "max_articles_total": 20, "per_source_limit": 8, "optional_imports": {"pydantic_core": true, "msal": true, "dotenv": true}, "ts": "2026-03-19T07:16:46.401923+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["Llama3.1:70b", "phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-19T07:16:46.913873+00:00"}
+{"stage": "today_fallback_started", "target_date": "2026-03-19", "fallback_sources": ["Reuters", "Discovery Alert", "S&P Global", "MetalMiner", "Argus Media", "Fastmarkets", "World Bank Blogs"], "ts": "2026-03-19T07:36:12.408584+00:00"}

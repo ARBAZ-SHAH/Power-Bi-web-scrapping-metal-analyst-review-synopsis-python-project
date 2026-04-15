@@ -1,0 +1,2 @@
+{"stage": "run_started", "run_id": "119ec762-4041-4913-9123-6db5ab6a95da", "backend": "ollama", "sources": ["Metal.com"], "requested_scope": "All", "target_date": "2026-03-26", "max_articles_total": 10, "per_source_limit": 8, "optional_imports": {"pydantic_core": true, "msal": true, "dotenv": true}, "ts": "2026-03-26T10:30:15.590774+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["Llama3.1:70b", "phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-26T10:30:15.968532+00:00"}

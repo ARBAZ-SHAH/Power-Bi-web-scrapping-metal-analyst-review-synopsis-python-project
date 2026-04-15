@@ -1,0 +1,7 @@
+{"stage": "user_preferences", "requested_scope": "Copper", "selected_sources": ["AInvest", "Reuters", "Discovery Alert", "Capital.com", "S&P Global", "Business Research Insights", "MetalMiner", "Argus Media", "Fastmarkets", "Fitch Solutions", "Metal.com", "World Bank Blogs"], "max_links_per_source": 10, "max_articles_total": 10, "sleep_seconds": 0.5, "max_workers": 1, "ts": "2026-03-16T08:27:17.403515+00:00"}
+{"stage": "run_started", "run_id": "452baa57-f4a8-4fb6-acba-92b72c88effd", "backend": "ollama", "sources": ["AInvest", "Reuters", "Discovery Alert", "Capital.com", "S&P Global", "Business Research Insights", "MetalMiner", "Argus Media", "Fastmarkets", "Fitch Solutions", "Metal.com", "World Bank Blogs"], "requested_scope": "Copper", "use_llm_relevance_filter": false, "max_links_per_source": 10, "max_articles_total": 10, "sleep_seconds": 0.5, "max_workers": 1, "ts": "2026-03-16T08:27:17.780889+00:00"}
+{"stage": "ollama_preflight", "host": "http://10.4.3.45:11434", "models": ["phi3:mini", "phi3:medium", "llama3:8b"], "ts": "2026-03-16T08:27:18.102476+00:00"}
+{"stage": "discovery_summary", "source_name": "AInvest", "candidate_count": 0, "top_candidates": [], "ts": "2026-03-16T08:28:06.437346+00:00"}
+{"stage": "listing_empty", "source_name": "AInvest", "ts": "2026-03-16T08:28:06.544290+00:00"}
+{"stage": "discovery_summary", "source_name": "Reuters", "candidate_count": 0, "top_candidates": [], "ts": "2026-03-16T08:28:13.416449+00:00"}
+{"stage": "listing_empty", "source_name": "Reuters", "ts": "2026-03-16T08:28:13.512410+00:00"}
